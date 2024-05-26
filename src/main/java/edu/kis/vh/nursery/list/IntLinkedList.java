@@ -11,7 +11,7 @@ public class IntLinkedList {
             last = new Node(i);
         else {
             last.next = new Node(i);
-            last.next.prev = last;
+            last.next.setPrev(last);
             last = last.next;
         }
     }
@@ -27,14 +27,16 @@ public class IntLinkedList {
     public int top() {
         if (isEmpty())
             return EMPTY;
-        return last.value;
+        return last.getValue();
+
     }
 
     public int pop() {
         if (isEmpty())
             return EMPTY;
-        int ret = last.value;
-        last = last.prev;
+        int ret = last.getValue();
+        last = last.getPrev();
+
         return ret;
     }
 
