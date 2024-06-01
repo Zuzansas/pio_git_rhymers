@@ -6,6 +6,7 @@ package edu.kis.vh.nursery;
  */
 public class DefaultCountingOutRhymer {
 
+
     private static final int INT = 12;
     private int[] numbers = new int[INT];
     private int totalCount = -1;
@@ -18,6 +19,14 @@ public class DefaultCountingOutRhymer {
     public int getTotal() {
         return totalCount;
     }
+
+    public static final int EMPTY = -1;
+    public static final int CAPACITY = 12;
+    public static final int FULL = CAPACITY-1;
+    private final int[] numbers = new int[CAPACITY];
+
+    private int total = -1;
+
 
     /**
      * Dodaje nowy element do tablicy, jeśli nie jest pełna.
@@ -35,7 +44,9 @@ public class DefaultCountingOutRhymer {
      * @return true, jeśli tablica jest pusta; false w przeciwnym razie
      */
     public boolean callCheck() {
-        return totalCount == -1;
+
+        return total == EMPTY;
+
     }
 
     /**
@@ -44,7 +55,9 @@ public class DefaultCountingOutRhymer {
      * @return true, jeśli tablica jest pełna; false w przeciwnym razie
      */
     public boolean isFull() {
-        return totalCount == 11;
+
+        return total == FULL;
+
     }
 
     /**
@@ -54,8 +67,8 @@ public class DefaultCountingOutRhymer {
      */
     protected int peekaboo() {
         if (callCheck())
-            return -1;
-        return numbers[totalCount];
+            return EMPTY;
+        return numbers[total];
     }
 
     /**
@@ -65,8 +78,8 @@ public class DefaultCountingOutRhymer {
      */
     public int countOut() {
         if (callCheck())
-            return -1;
-        return numbers[totalCount--];
+            return EMPTY;
+        return numbers[total--];
     }
 }
 
