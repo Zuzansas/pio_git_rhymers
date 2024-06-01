@@ -10,6 +10,7 @@ public class DefaultCountingOutRhymer {
         if (!isFull())
             numbers[++total] = in;
     }
+    
 
     public boolean callCheck() {
         return total == -1;
